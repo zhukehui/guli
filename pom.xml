@@ -5,6 +5,7 @@
     <modules>
         <module>common</module>
         <module>service</module>
+        <module>aliyun_oss</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

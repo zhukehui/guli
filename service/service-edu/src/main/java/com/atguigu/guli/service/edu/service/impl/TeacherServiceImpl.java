@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -44,8 +46,9 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
 
         //确保条件都不为空
 
-        if (!StringUtils.isEmpty(name)) {
-            queryWrapper.like("name", name);
+        if(!StringUtils.isEmpty(name)){
+            //queryWrapper.like("name", name);
+            queryWrapper.eq("name", name);
         }
 
         if (level != null) {
@@ -61,6 +64,16 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
         }
 
         return baseMapper.selectPage(pageParam, queryWrapper);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectNameListByKey(String key) {
+        QueryWrapper<Teacher> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("name");
+        queryWrapper.likeRight("name", key);
+
+        List<Map<String, Object>> list = baseMapper.selectMaps(queryWrapper);//返回值是Map列表
+        return list;
     }
 
 

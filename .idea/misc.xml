@@ -11,6 +11,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/aliyun_oss/pom.xml" />
         <option value="$PROJECT_DIR$/common/demo/pom.xml" />
         <option value="$PROJECT_DIR$/common/test-demo/pom.xml" />
       </set>

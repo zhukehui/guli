@@ -9,9 +9,11 @@
         <module name="service-base" />
         <module name="service-edu" />
         <module name="common-util" />
+        <module name="service-oss" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="aliyun_oss" target="1.8" />
       <module name="common" target="1.8" />
       <module name="common-util" target="1.8" />
       <module name="commonutil" target="1.8" />
@@ -20,6 +22,7 @@
       <module name="service" target="1.8" />
       <module name="service-base" target="1.8" />
       <module name="service-edu" target="1.8" />
+      <module name="service-oss" target="1.8" />
       <module name="servicebase" target="1.8" />
       <module name="serviceedu" target="1.8" />
       <module name="testdemo" target="1.8" />
@@ -27,6 +30,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aliyun_oss" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="common-util" options="-parameters" />
       <module name="commonutil" options="-parameters" />
@@ -35,6 +39,7 @@
       <module name="service" options="-parameters" />
       <module name="service-base" options="-parameters" />
       <module name="service-edu" options="-parameters" />
+      <module name="service-oss" options="-parameters" />
       <module name="servicebase" options="-parameters" />
       <module name="serviceedu" options="-parameters" />
       <module name="testdemo" options="-parameters" />

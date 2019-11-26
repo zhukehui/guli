@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,6 +24,7 @@ import java.util.List;
  * @author eternity
  * @since 2019-11-20
  */
+@CrossOrigin //解决前端跨域问题
 @Api(description="讲师管理")
 @RestController
 @RequestMapping("/admin/edu/teacher")
@@ -36,11 +38,22 @@ public class TeacherController {
      * @return
      */
     @ApiOperation(value = "查询所有讲师列表", notes = "返回所有讲师列表")
-    @GetMapping("list")
+    @GetMapping("/list")
     public R listAll(){
 
         List<Teacher> items = teacherService.list(null);
         return R.ok().data("items",items).message("获取讲师列表成功!");
+    }
+
+    @ApiOperation(value = "根据左关键字查询讲师名列表")
+    @GetMapping("list/name/{key}")
+    public R selectNameListByKey(
+            @ApiParam(name = "key", value = "查询关键字", required = true)
+            @PathVariable String key){
+
+        List<Map<String, Object>> nameList = teacherService.selectNameListByKey(key);
+
+        return R.ok().data("nameList", nameList);
     }
 
     /**
@@ -55,6 +68,20 @@ public class TeacherController {
             @PathVariable("id")String id){
         this.teacherService.removeById(id);
         return R.ok().message("删除讲师信息成功!");
+    }
+
+    /**
+     * 批量删除
+     * @param idList
+     * @return
+     */
+    @ApiOperation(value="根据id列表删除讲师")
+    @DeleteMapping("batch-remove")
+    public R removeRows(
+            @ApiParam(value = "讲师id列表", name = "idList", required = true)
+            @RequestBody List<String> idList){
+        boolean result = teacherService.removeByIds(idList);
+        return R.ok().message("删除讲师成功");
     }
 
     /**
