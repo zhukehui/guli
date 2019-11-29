@@ -20,4 +20,6 @@ public interface SubjectService extends IService<Subject> {
     void batchImport(InputStream inputStream)throws Exception;
 
     List<SubjectVo> nestedList();
+
+    List<SubjectVo> nestedList2();
 }

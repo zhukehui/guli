@@ -132,6 +132,11 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
         return subjectVoList;
     }
 
+    @Override
+    public List<SubjectVo> nestedList2() {
+        return baseMapper.selectNestedListByParentId("0");
+    }
+
     /**
      * 根据分类名称查询这个一级分类中否存在
      *

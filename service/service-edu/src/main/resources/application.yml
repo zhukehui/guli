@@ -29,7 +29,8 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志
-
+#mybatis-plus:
+  mapper-locations: classpath:com/atguigu/guli/service/edu/mapper/xml/*.xml
 logging:
   level:
     root: debug

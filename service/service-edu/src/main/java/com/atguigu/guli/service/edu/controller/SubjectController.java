@@ -60,6 +60,14 @@ public class SubjectController {
         return R.ok().data("items", subjectVoList);
     }
 
+    @ApiOperation(value = "嵌套数据列表")
+    @GetMapping("nested-list2")
+    public R nestedList2(){
+
+        List<SubjectVo> subjectVo2List = subjectService.nestedList2();
+        return R.ok().data("items", subjectVo2List);
+    }
+
 
 }
 

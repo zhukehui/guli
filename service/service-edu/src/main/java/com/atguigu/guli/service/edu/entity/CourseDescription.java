@@ -30,5 +30,7 @@ public class CourseDescription extends BaseEntity {
     @ApiModelProperty(value = "课程简介")
     private String description;
 
-
+    @ApiModelProperty(value = "ID")
+    @TableId(value = "id", type = IdType.NONE)
+    private String id;
 }
